@@ -132,3 +132,26 @@ def quickSort(array):
     # Note that you want equal ^^^^^ not pivot
     else:  # You need to hande the part at the end of the recursion - when you only have one element in your array, just return the array.
         return array
+
+def gerarArraysDeTeste(tamanho_minimo_array,tamanho_maximo_array,valor_minimo,valor_maximo):
+    testes = []
+    print("")
+    print("Gerando arrays com valores aleatorios")
+    print("")
+    for tamanho in range(tamanho_minimo_array, tamanho_maximo_array):
+
+        testes.append(random.sample(range(valor_minimo,valor_maximo+1), tamanho+1))
+        #print(str(testes[tamanho]))
+
+    print("Arrays gerados com sucesso!")
+
+
+# Entradas
+
+tamanho_minimo_array = int(input("Entre com o tamanho minimo para os arrays: "))
+tamanho_maximo_array = int(input("Entre com o tamanho maximo para os arrays: "))
+valor_minimo = int(input("Entre com o valor minimo do intervalo: "))
+valor_maximo = int(input("Entre com o valor máximo do intervalo: "))
+
+testes = gerarArraysDeTeste(tamanho_minimo_array,tamanho_maximo_array,valor_minimo,valor_maximo)
+#print(str(testes))
