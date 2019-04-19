@@ -8,6 +8,7 @@ import time
 import random
 from random import randint
 import matplotlib.pyplot as plt
+from copy import deepcopy
 
 print("hello world")
 
@@ -138,12 +139,13 @@ def gerarArraysDeTeste(tamanho_minimo_array,tamanho_maximo_array,valor_minimo,va
     print("")
     print("Gerando arrays com valores aleatorios")
     print("")
-    for tamanho in range(tamanho_minimo_array, tamanho_maximo_array):
+    for tamanho in range(tamanho_minimo_array, tamanho_maximo_array+1):
 
-        testes.append(random.sample(range(valor_minimo,valor_maximo+1), tamanho+1))
+        testes.append(random.sample(range(valor_minimo,valor_maximo+1), tamanho))
         #print(str(testes[tamanho]))
 
     print("Arrays gerados com sucesso!")
+    return testes
 
 
 # Entradas
@@ -154,4 +156,43 @@ valor_minimo = int(input("Entre com o valor minimo do intervalo: "))
 valor_maximo = int(input("Entre com o valor máximo do intervalo: "))
 
 testes = gerarArraysDeTeste(tamanho_minimo_array,tamanho_maximo_array,valor_minimo,valor_maximo)
-#print(str(testes))
+print(str(len(testes)))
+
+
+# Ordenando arrays e coletando tempos
+
+tempos_bubble = []
+tempos_insertion = []
+tempos_bucket = []
+tempos_quick = []
+
+
+for array in testes:
+
+    bubble = deepcopy(array)
+    insertion = deepcopy(array)
+    bucket = deepcopy(array)
+    quick = deepcopy(array)
+
+    inicial_tempo_bubble = time.time()
+    bubble = bubbleSort(bubble,False)
+    final_tempo_bubble = time.time()
+    tempos_bubble.append(final_tempo_bubble - inicial_tempo_bubble)
+
+    inicial_tempo_insertion = time.time()
+    insertion = insertionSort(insertion,False)
+    final_tempo_insertion = time.time()
+    tempos_insertion.append(final_tempo_insertion - inicial_tempo_insertion)
+
+    inicial_tempo_bucket = time.time()
+    bucket = bucketSort(bucket, False)
+    final_tempo_bucket = time.time()
+    tempos_bucket.append(final_tempo_bucket - inicial_tempo_bucket)
+
+    inicial_tempo_quick = time.time()
+    quick = quickSort(quick)
+    final_tempo_quick = time.time()
+    tempos_quick.append(final_tempo_quick - inicial_tempo_quick)
+
+
+print(tempos_bubble)
