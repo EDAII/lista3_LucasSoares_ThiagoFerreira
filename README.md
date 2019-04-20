@@ -34,7 +34,7 @@ python3 -m pip install matplotlib --user
 
 ## Executando o código
 
-Após a instalação de cada uma das dependências execute com o python 3 o arquivo **lista3.py**
+Após a instalação de cada uma das dependências execute com o python 3 o arquivo **lista3-planoB.py**
 
 Forneça o tamanho mínimo e o máximo de arrays para a comparação (o número total de arrays é determinado por tamanho_máximo - tamanho_mínimo)
 Forneça o intervalo de valores presentes nos arrays (respeitando o número total de arrays)
