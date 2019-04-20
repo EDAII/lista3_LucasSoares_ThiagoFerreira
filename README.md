@@ -19,8 +19,7 @@ um intervalo de arrays com números aleatórios para que, no fim, o sistema reto
 
 ## Dependências
 
-O código está escrito em **Python 3.6** utilizando **Jupyter-Notebook**
-Para a instalação do Jupyter-Notebook no Python3 realize o tutorial encontrado [**AQUI**](https://jupyter.org/install.html)
+O código está escrito em **Python 3.6**
 
 Para a visualização dos resultados em gráficos foi utiliza a biblioteca **matplotlib**.
 A instalação da biblioteca matplotlib no Ubuntu e similares pode ser realizada efetuando os comandos a seguir:
