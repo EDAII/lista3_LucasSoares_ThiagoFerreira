@@ -168,6 +168,9 @@ tempos_bucket = []
 tempos_quick = []
 
 plt.axis()
+plt.title("Comparação dos tempos de execução")
+plt.xlabel("Tamanho dos Arrays")
+plt.ylabel("Tempo de Execução")
 
 for array in testes:
 
@@ -177,32 +180,39 @@ for array in testes:
     bubble = bubbleSort(bubble,False)
     final_tempo_bubble = time.time()
     tempos_bubble.append(final_tempo_bubble - inicial_tempo_bubble)
-    plt.plot(tempos_bubble)
+    plt.plot(tempos_bubble,label='Bubble Sort')
     plt.pause(0.5)
+
+    insertion = deepcopy(array)
+
+    inicial_tempo_insertion = time.time()
+    insertion = insertionSort(insertion,False)
+    final_tempo_insertion = time.time()
+    tempos_insertion.append(final_tempo_insertion - inicial_tempo_insertion)
+    plt.plot(tempos_insertion,label='Insertion Sort')
+    plt.pause(0.5)
+
+    bucket = deepcopy(array)
+
+    inicial_tempo_bucket = time.time()
+    bucket = bucketSort(bucket, False)
+    final_tempo_bucket = time.time()
+    tempos_bucket.append(final_tempo_bucket - inicial_tempo_bucket)
+    plt.plot(tempos_bucket,label='Bucket Sort')
+    plt.pause(0.5)
+
+    quick = deepcopy(array)
+    inicial_tempo_quick = time.time()
+    quick = quickSort(quick)
+    final_tempo_quick = time.time()
+    tempos_quick.append(final_tempo_quick - inicial_tempo_quick)
+    plt.plot(tempos_quick,label='Quick Sort')
+    plt.pause(0.5)
+plt.legend()
 plt.show()
 
-# for array in testes:
-#     inicial_tempo_insertion = time.time()
-#     insertion = insertionSort(insertion,False)
-#     final_tempo_insertion = time.time()
-#     tempos_insertion.append(final_tempo_insertion - inicial_tempo_insertion)
-#     insertion = deepcopy(array)
-
-# for array in testes:
-
-#     bucket = deepcopy(array)
-
-#     inicial_tempo_bucket = time.time()
-#     bucket = bucketSort(bucket, False)
-#     final_tempo_bucket = time.time()
-#     tempos_bucket.append(final_tempo_bucket - inicial_tempo_bucket)
-
-# for array in testes:
-#     quick = deepcopy(array)
-#     inicial_tempo_quick = time.time()
-#     quick = quickSort(quick)
-#     final_tempo_quick = time.time()
-#     tempos_quick.append(final_tempo_quick - inicial_tempo_quick)
-
-
 print(tempos_bubble)
+print(tempos_insertion)
+print(tempos_bucket)
+print(tempos_quick)
+
