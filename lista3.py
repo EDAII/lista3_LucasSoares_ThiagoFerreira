@@ -171,7 +171,6 @@ plt.axis()
 plt.title("Comparação dos tempos de execução")
 plt.xlabel("Tamanho dos Arrays")
 plt.ylabel("Tempo de Execução")
-
 for array in testes:
 
     bubble = deepcopy(array)
@@ -180,7 +179,7 @@ for array in testes:
     bubble = bubbleSort(bubble,False)
     final_tempo_bubble = time.time()
     tempos_bubble.append(final_tempo_bubble - inicial_tempo_bubble)
-    plt.plot(tempos_bubble,marker='o',color='b',label='Bubble Sort')
+    plot_bubble, = plt.plot(tempos_bubble,marker='o',color='b',label='Bubble Sort')
     plt.pause(0.5)
 
     insertion = deepcopy(array)
@@ -189,7 +188,7 @@ for array in testes:
     insertion = insertionSort(insertion,False)
     final_tempo_insertion = time.time()
     tempos_insertion.append(final_tempo_insertion - inicial_tempo_insertion)
-    plt.plot(tempos_insertion,label='Insertion Sort',marker='o',color='g')
+    plot_insertion, = plt.plot(tempos_insertion,label='Insertion Sort',marker='o',color='g')
     plt.pause(0.5)
 
     bucket = deepcopy(array)
@@ -198,7 +197,7 @@ for array in testes:
     bucket = bucketSort(bucket, False)
     final_tempo_bucket = time.time()
     tempos_bucket.append(final_tempo_bucket - inicial_tempo_bucket)
-    plt.plot(tempos_bucket,label='Bucket Sort',marker='o',color='y')
+    plot_bucket, = plt.plot(tempos_bucket,label='Bucket Sort',marker='o',color='y')
     plt.pause(0.5)
 
     quick = deepcopy(array)
@@ -206,9 +205,10 @@ for array in testes:
     quick = quickSort(quick)
     final_tempo_quick = time.time()
     tempos_quick.append(final_tempo_quick - inicial_tempo_quick)
-    plt.plot(tempos_quick,label='Quick Sort',marker='o',color='r')
+    plot_quick, = plt.plot(tempos_quick,marker='o',color='r')
     plt.pause(0.5)
-plt.legend()
+    plt.legend([plot_bubble,plot_insertion,plot_bucket,plot_quick],['Bubble Sort','Insertion Sort','Bucket Sort','Quick Sort'])
+
 plt.show()
 
 print(tempos_bubble)
